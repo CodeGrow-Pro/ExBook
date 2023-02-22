@@ -8,18 +8,36 @@
 }
 .headers::before{
     content: '';
-    background: rgba(6, 6, 93,0.8);
+    width: 100%;
+    height: 350px;
+    background:#eaa451;
+    opacity: 0.8;
+    position: absolute;
+    left: 0;
+    top: 0;
 } 
+.headers::after{
+        background-color: #fff;
+        -webkit-clip-path: polygon(100% 0,0 100%,100% 100%);
+        clip-path: polygon(100% 0,0 100%,100% 100%);
+        content: "";
+        height: 100%;
+        opacity: .15;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+}
 .container {
     width: 100%;
     height: 100%;
-    color:rgba(6, 6, 93,0.5);
     padding: 100px;
+  position: absolute;
 }
 .container h1{
-    color: rgb(6, 6, 93);
+    color:rgb(249, 249, 249);
     justify-content: center;
     text-align: center;
     align-items: center;
-    font-size: 8rem;
+    font-size: 5rem;
 }
