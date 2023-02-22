@@ -1,0 +1,75 @@
+.hero {
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+    background-image: url('https://bookland.dexignzone.com/react/demo/static/media/waveelement2.1220dd60ef39104189c2.png');
+    background-size:cover ;
+    position: relative;
+    padding-top: 8rem;
+}
+.hero-content h1{
+    font-size: 60px;
+    word-spacing: 1.5rem;
+    color: rgb(6, 6, 93);
+}
+.hero-content p{
+    font-size: 20px;
+    line-height: 2rem;
+    word-spacing: 1rem;
+    color:#eaa451 ;
+}
+.hero-content span {
+  margin-right: 5rem;
+   font-size: 20px;
+   color: rgb(6, 6, 93);
+}
+.latter-space {
+    letter-spacing: 1.5rem;
+}
+.hero-img img{
+    height: 85vh;
+}
+.para {
+    width: 80%;
+    margin: 20px 0px;
+    border-left: 5px solid #eaa451;
+    border-radius: 5px;
+    padding: 10px;
+}
+.para p{
+    color: rgb(6, 6, 93);
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.5rem;
+}
+.normal-btn ,.light-btn {
+    width: 8rem;
+    padding: 15px;
+    margin-right: 2rem;
+    margin-top: 30px;
+    background-color: #eaa451;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    transition: 1s;
+    cursor: pointer;
+}
+.light-btn {
+    background-color: transparent;
+    color: rgb(6, 6, 93);
+   border:2px solid #eaa451;
+}
+.light-btn:hover{
+     background-color: rgb(6, 6, 93);
+     color: white;
+}
+.normal-btn:hover{
+    background-color: transparent;
+    color: rgb(6, 6, 93);
+    border: 2px solid #eaa451;
+}
+  

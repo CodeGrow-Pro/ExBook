@@ -1,0 +1,25 @@
+.headers {
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    background-position: top center;
+    background-image: url('https://bookland.dexignzone.com/react/demo/static/media/bg3.8f81bf23084cbcda3d28.jpg');
+   color:rgba(6, 6, 93,0.5);
+}
+.headers::before{
+    content: '';
+    background: rgba(6, 6, 93,0.8);
+} 
+.container {
+    width: 100%;
+    height: 100%;
+    color:rgba(6, 6, 93,0.5);
+    padding: 100px;
+}
+.container h1{
+    color: rgb(6, 6, 93);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 8rem;
+}

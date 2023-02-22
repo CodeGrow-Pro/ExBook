@@ -1,0 +1,56 @@
+
+.footer{
+    padding:100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+    background-image: url('https://bookland.dexignzone.com/react/demo/static/media/waveelement2.1220dd60ef39104189c2.png');
+    background-size:cover ;
+}
+.footer-content{
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.social-media ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+   font-size: 32px;
+}
+.social-media ul a{
+    color: #eaa451;
+    margin-right: 1.5rem;
+}
+.footer-menu ul a{
+    list-style: none;
+    text-decoration: none;
+    text-align: left;
+    color: rgb(6, 6, 93);  
+}
+.footer-menu ul a:hover{
+    font-weight: 900;
+    color: #eaa451; 
+}
+.footer-menu ul a li{
+    line-height: 10px;
+    margin: 18px;
+    text-align: left;
+}
+
+.contact ul{
+    list-style: none;
+}
+.contact ul li{
+    font-size: 36px;
+    margin-bottom: 10px;
+   color: #eaa451;
+}
+.contact ul li span {
+    margin-left: 20px;
+    font-size: 18px;
+    line-break: auto;
+    color: rgb(6, 6, 93);    
+}
+

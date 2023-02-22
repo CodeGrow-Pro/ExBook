@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.section-p{
+  padding: 30px 50px;
+}
+.heading-h1 {
+  color: rgb(6, 6, 93);
+} 

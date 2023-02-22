@@ -1,0 +1,48 @@
+.recomend{
+    background-color: white;
+    margin-bottom: 50px;
+}
+.title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.title p{
+    width: 50%;
+   color: grey;
+   font-size: 18px;
+   justify-content: center;
+   margin-left: 18rem;
+   margin-top: 1rem;
+
+}
+.card-body {
+    padding: 0px 90px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+.card {
+    text-align: center;
+}
+.card img { 
+    border-radius: 10px;
+    width: 250px;
+    height: 360px;
+}
+.card .book{
+    text-align: center;
+    color: #eaa451;
+    font-size: 22px;
+}
+.book .normal-btn span {
+   margin-right: 10px;
+}
+.book .normal-btn {
+    width: 150px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-left: 25px;
+}
