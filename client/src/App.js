@@ -7,6 +7,9 @@ import About from './routes/about';
 import Shop from './routes/shop';
 import Contact from './routes/contact';
 import Cart from './routes/cart';
+import Login from './routes/Login';
+
+
 
 function App() {
   return (
@@ -18,6 +21,7 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/user" element={<User />} />
+          <Route path="/login" element={<Login />} />
       </Routes>
   );
 }
