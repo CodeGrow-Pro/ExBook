@@ -1,0 +1,49 @@
+.navbar {
+     background-color: whitesmoke;
+     padding: 20px 30px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     transition: 0.6s;
+}
+.logo {
+    cursor: pointer;
+}
+.menu {
+      display:  flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0px 40px;
+}
+.menu {
+    list-style: none;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.menu li{
+     margin-left: 3rem;
+     transition: 1s;
+     position: relative;
+}
+.menu li a{
+    text-decoration: none;
+    color: black;
+}
+.menu li a:hover{
+    color: #eaa451;
+    font-weight: 600;
+    transition: 2px;
+}
+.menu li:hover a::after{
+    content: ' ';
+    width: 70%;
+    height: 4px;
+    position: absolute;
+    left: 0px;
+    top: 25px;
+    bottom: 20px;
+    text-align: left;
+    border-radius: 4px;
+    background-color:#eaa451 ;
+}
