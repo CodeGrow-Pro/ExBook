@@ -1,4 +1,5 @@
 import React from 'react'
+import Blogs from '../component/Blogs'
 import Footer from '../component/Footer'
 import Header from '../component/Header'
 import Navbar from '../component/Navbar'
@@ -9,10 +10,11 @@ const Blog = () => {
     <div>
         <Navbar />
         <Header heading="Blog" />
+        <Blogs />
         <Newsletter />
         <Footer />
     </div>
   )
 } 
 
-export default Blog
+export default Blog;
