@@ -4,8 +4,32 @@ import classes from './Login.module.css'
 import Button from "../component/UI/Button";
 import Navbar from "../component/Navbar";
 import Header from "../component/Header";
+import useInput from "../hooks/use-input";
 
-const Login = () => {
+const Login = (props) => {
+
+    const { value: enteredEmail, hasError: emailInputHasError, isValid: emailIsValid, valueHandler: emailChangeHandler, touchHandler: emailTouchHandler, reset: emailReset} = useInput(value => value.trim() !== '');
+    const { value: enteredPassword, hasError: passwordInputHasError, isValid: passwordIsValid, valueHandler: passwordChangeHandler, touchHandler: passwordTouchHandler, reset: passwordReset} = useInput(value => value.trim() !== '');
+
+    const emailInputClasses = emailInputHasError ? `${classes.control} ${classes.invalid}` : `${classes.control}`;
+    const passwordInputClasses = passwordInputHasError ? `${classes.control} ${classes.invalid}` : `${classes.control}`;
+    let formIsValid = false;
+    if(emailIsValid && passwordIsValid) {
+        formIsValid = true;
+    }
+    const confirmHandler = (event) => {
+        // event.preventDefault();
+        console.log("Submit");
+        if(!formIsValid) {
+            return;
+        }
+        props.onSubmit({
+            email: enteredEmail,
+            password: enteredPassword
+        })
+        emailReset();
+        passwordReset();
+    }
     return (
         <>
         <Navbar />
@@ -27,16 +51,24 @@ const Login = () => {
 
                 <h2>LOGIN</h2>
                 <p>If you have an account with us, please log in.</p>
-                <div className={classes.loginInput}>
-                    <label htmlFor="email"> Email</label>
-                    <input type='text' id="email"></input>
-                    <label htmlFor="email">Password</label>
-                    <input type='text' id="email"></input>    
-                </div>
-                <div className={classes.loginSubmit}>
-                    <Button>Login</Button> 
-                    <div>Forgot Password</div>    
-                </div>
+                <form onSubmit={confirmHandler} className={classes.form}>
+                    <div className={classes.loginInput}>
+                        <div className={emailInputClasses}>
+                            <label htmlFor="email"> Email</label>
+                            <input type='text' id="email" value={enteredEmail} onChange={emailChangeHandler} onBlur={emailTouchHandler}></input>
+                            {emailInputHasError && <p className={classes.errorText}>Error</p>}
+                        </div>
+                        <div className={passwordInputClasses}>
+                            <label htmlFor="password"> Password</label>
+                            <input type='text' id="password" value={enteredPassword} onChange={passwordChangeHandler} onBlur={passwordTouchHandler}></input>
+                            {passwordInputHasError && <p className={classes.errorText}>Error</p>}
+                        </div>   
+                    </div>
+                    <div className={classes.loginSubmit}>
+                        <Button onClick={confirmHandler}>Login</Button> 
+                        <div>Forgot Password</div>    
+                    </div>   
+                </form>
                 
             </Card>
             
