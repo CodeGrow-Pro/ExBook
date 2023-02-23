@@ -9,6 +9,15 @@ import Contact from './routes/contact';
 import Cart from './routes/cart';
 import Login from './routes/Login';
 
+const loginHandler = async(userData)=>{
+  await fetch('/login', {
+    method: 'POST',
+    body: JSON.stringify({
+      user: userData
+    })
+  });
+  console.log(userData);
+}
 
 
 function App() {
@@ -21,7 +30,7 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/user" element={<User />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/ui/login" element={<Login onSubmit={loginHandler}/>} exact/>
       </Routes>
   );
 }
