@@ -1,0 +1,76 @@
+.mapContainerClasses{
+    position: absolute;
+    height: 300px;
+    width: 100vw;
+}
+
+.containerContact{
+    /* display: flex;
+    flex-direction: column; */
+    /* flex-wrap: wrap; */
+    height: 300px;
+}
+
+.img1{
+    position:relative;   
+    height: 330px;
+    max-height: 700px;
+    width: 700px;
+    max-width: 1000px;
+    overflow: hidden;
+}
+
+.contactCard{
+    position: absolute;
+    z-index: 2;
+    margin-top: 200px;
+    left: 650px;
+    height: 25rem;
+}
+.orange{
+    color: #EBAB5F;
+}
+.blue{
+    color: #1C1869;
+}
+.form {
+    height: 100%;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* height: 15rem; */
+    overflow: auto;
+  }
+  
+  .control {
+    margin-bottom: 0.5rem;
+  }
+  
+  .control label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+  
+  .control input {
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 20rem;
+    max-width: 100%;
+  }
+  
+  .invalid input {
+    border: 1px solid #b40e0e;
+    background-color: #fddddd;
+  }
+  
+  .invalid input:focus {
+    border-color: #ff8800;
+    background-color: #fbe8d2;
+  }
+  
+  .errorText {
+    color: #b40e0e;
+  }

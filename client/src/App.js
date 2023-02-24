@@ -1,4 +1,7 @@
 import './App.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 import { Routes ,Route } from 'react-router-dom';
 import User from './routes/user';
 import Home from './routes/home';
@@ -32,7 +35,7 @@ function App() {
           <Route exact path="/Contact" element={<Contact />} />
           <Route exact path="/Cart" element={<Cart />} />
           <Route exact path="/user" element={<User />} />
-          <Route exact path="/regester" element={<Regester />} />
+          <Route exact path="/register" element={<Regester />} />
           <Route exact path="/ui/login" element={<Login onSubmit={loginHandler}/>}/>
           <Route path='*' element={<Errors />} />
       </Routes>
