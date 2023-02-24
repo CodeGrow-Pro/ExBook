@@ -1,4 +1,7 @@
 import './App.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 import { Routes ,Route } from 'react-router-dom';
 import User from './routes/user';
 import Home from './routes/home';

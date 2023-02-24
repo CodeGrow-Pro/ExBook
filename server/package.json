@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "client": "cd .. && cd client && npm start",
+    "client": "cd .. && cd client && npm --openssl-legacy-provider start",
     "start": "concurrently \"npm run dev\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

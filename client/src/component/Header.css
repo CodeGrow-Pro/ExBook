@@ -3,7 +3,7 @@
     height: 350px;
     background-size: cover;
     background-position: top center;
-    background-image: url('https://bookland.dexignzone.com/react/demo/static/media/bg3.8f81bf23084cbcda3d28.jpg');
+    /* background-image: url('https://bookland.dexignzone.com/react/demo/static/media/bg3.8f81bf23084cbcda3d28.jpg'); */
    color:rgba(6, 6, 93,0.5);
 }
 .headers::before{
