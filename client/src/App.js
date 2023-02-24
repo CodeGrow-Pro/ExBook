@@ -8,6 +8,8 @@ import Shop from './routes/shop';
 import Contact from './routes/contact';
 import Cart from './routes/cart';
 import Login from './routes/Login';
+import Errors from './routes/Errors';
+import Regester from './routes/regester';
 
 const loginHandler = async(userData)=>{
   await fetch('/login', {
@@ -23,14 +25,16 @@ const loginHandler = async(userData)=>{
 function App() {
   return (
       <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Blog" element={<Blog />} />
-          <Route path="/About-us" element={<About />} />
-          <Route path="/Shop" element={<Shop />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Cart" element={<Cart />} />
-          <Route path="/user" element={<User />} />
-          <Route path="/ui/login" element={<Login onSubmit={loginHandler}/>} exact/>
+          <Route  exact path="/" element={<Home />} />
+          <Route exact path="/Blog" element={<Blog />} />
+          <Route exact path="/About-us" element={<About />} />
+          <Route exact path="/Shop" element={<Shop />} />
+          <Route exact path="/Contact" element={<Contact />} />
+          <Route exact path="/Cart" element={<Cart />} />
+          <Route exact path="/user" element={<User />} />
+          <Route exact path="/regester" element={<Regester />} />
+          <Route exact path="/ui/login" element={<Login onSubmit={loginHandler}/>}/>
+          <Route path='*' element={<Errors />} />
       </Routes>
   );
 }

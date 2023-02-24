@@ -2,6 +2,7 @@ import React from 'react'
 import './Main.css'
 import 'react-icons/fa'
 import { FaCartPlus } from 'react-icons/fa'
+import BookCart from './BookCart'
 const Main = () => {
   return (
     <div>
@@ -13,13 +14,9 @@ const Main = () => {
           </div>
           <div className="slider">
                 <div className="card-body">
-                  <div className="card">
-                       <img src="https://bookland.dexignzone.com/react/demo/static/media/book1.b9dcc11ed55091e09497.jpg" alt='books' />
-                       <div className="book">
-                            <h2 className='heading-h1 '>Real Life</h2>
-                            <p>$27.66</p>
-                            <button className='normal-btn'><span><FaCartPlus></FaCartPlus></span> Add To Cart</button></div>
-                  </div>
+                   <BookCart srcImg="https://bookland.dexignzone.com/react/demo/static/media/book1.b9dcc11ed55091e09497.jpg"
+                   title="Real Life"
+                   price="$25.3"/>
                   <div className="card"> 
                        <img src="https://bookland.dexignzone.com/react/demo/static/media/book15.9514463d2ada5f2f17ce.jpg" alt='books' />
                        <div className="book">

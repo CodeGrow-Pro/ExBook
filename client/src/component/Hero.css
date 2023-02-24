@@ -1,3 +1,4 @@
+
 .hero {
     display: flex;
     height: 100vh;
@@ -9,6 +10,7 @@
     position: relative;
     padding-top: 8rem;
 }
+
 .hero-content h1{
     font-size: 60px;
     word-spacing: 1.5rem;
@@ -30,6 +32,42 @@
 }
 .hero-img img{
     height: 85vh;
+    animation: topdown;
+    animation-duration: 5s;
+    animation-iteration-count: initial;
+}
+
+@keyframes topdown {
+    from {
+        margin-top: 800px;
+    }
+    to {
+        margin-bottom: 0px;
+    }
+}
+.hero-img {
+  position: relative;
+  z-index: 2;
+}
+.hero-img::after {
+    content: '';
+    background-color: #eaa451;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    right: 0px;
+    top: -10px;
+    border-radius: 50%;
+    z-index: -1;
+    animation: move;
+    animation-duration: 5s;
+    transform: 5s;
+}
+@keyframes move {
+      from{
+        width: 50px;
+        height: 50px;
+      }
 }
 .para {
     width: 80%;
@@ -55,7 +93,7 @@
     color: white;
     font-size: 20px;
     font-weight: 600;
-    transition: 1s;
+    transition: 0.8s;
     cursor: pointer;
 }
 .light-btn {

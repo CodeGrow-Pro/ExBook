@@ -1,0 +1,9 @@
+.card-body{
+    margin-top: 100px;
+}
+.card-body .card{
+   border: 1px solid grey;
+   padding: 5px;
+   border-radius: 10px;
+   background-color: whitesmoke;
+}

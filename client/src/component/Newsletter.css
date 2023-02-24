@@ -50,7 +50,7 @@
 }
 .some-deatils .box .innerbox:hover{
     animation: moveInner;
-    animation-duration: 3s;
+    animation-duration: 1s;
     cursor: pointer;
 }
 @keyframes moveInner {

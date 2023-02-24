@@ -9,3 +9,14 @@
 .heading-h1 {
   color: rgb(6, 6, 93);
 } 
+::selection{
+  background-color: #eaa451;
+ color: white;
+}
+::-webkit-scrollbar{
+  width: 4px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #eaa451;
+}

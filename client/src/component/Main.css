@@ -16,10 +16,11 @@
 
 }
 .card-body {
-    padding: 0px 90px;
+    padding: 0px 80px;
     display: flex;
     flex-direction: row;
-    column-gap: 20px;
+    justify-content: space-between;
+    row-gap: 30px;
     flex-wrap: wrap;
     overflow-x: hidden;
 }

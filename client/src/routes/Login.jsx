@@ -5,6 +5,7 @@ import Button from "../component/UI/Button";
 import Navbar from "../component/Navbar";
 import Header from "../component/Header";
 import useInput from "../hooks/use-input";
+import Footer from "../component/Footer";
 
 const Login = (props) => {
 
@@ -38,7 +39,7 @@ const Login = (props) => {
             <img className={classes.loginBanner} src="https://cdn.literacytrust.org.uk/media/images/6ef30a3dddeb.2e16d0ba.fill-950x365.jpg"/>
         </div> */}
         <div className={classes.centreBtn}>
-            <Button><a>SHOP </a>  LOGIN </Button>
+            {/* <Button><a>SHOP </a>  LOGIN </Button> */}
         </div>
         <div className={classes.container}>
             <Card> 
@@ -48,7 +49,6 @@ const Login = (props) => {
                 <Button>CREATE NEW ACCOUNT</Button>
             </Card>
             <Card> 
-
                 <h2>LOGIN</h2>
                 <p>If you have an account with us, please log in.</p>
                 <form onSubmit={confirmHandler} className={classes.form}>
@@ -69,10 +69,10 @@ const Login = (props) => {
                         <div>Forgot Password</div>    
                     </div>   
                 </form>
-                
             </Card>
             
         </div>
+        <Footer />
         </>
         
     )

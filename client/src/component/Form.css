@@ -1,0 +1,50 @@
+.register {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 100px
+}
+.forms {
+    min-width: 40%;
+    background-color: whitesmoke;
+    padding: 50px 50px;
+    border: 0.5px solid rgb(219, 216, 216);
+    border-radius: 20px;
+}
+.forms form{
+    display: flex;
+    flex-direction: column;
+}
+.forms  .logo {
+    font-size: 32px;
+}
+.forms  p,
+option,
+select{
+    font-size: 18px;
+    color: grey;
+    margin: 10px 0px;
+}
+.forms form label,
+.forms form span{
+    font-size: 18px;
+    color: rgb(10, 10, 103);
+    margin: 15px 0px;
+}
+.forms form label::after{
+    content: '*';
+    color: red;
+}
+.forms form input,
+.forms form select{
+    padding: 12px 12px;
+    font-size: 16px;
+    border: 0.5px solid rgb(176, 172, 172);
+    border-radius: 10px;
+    outline: none;
+}
+.forms form input:focus,
+.forms form select:focus {
+    border-color: #eaa451;
+}

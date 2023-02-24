@@ -5,6 +5,10 @@
     background-position: top center;
     background-image: url('https://bookland.dexignzone.com/react/demo/static/media/bg3.8f81bf23084cbcda3d28.jpg');
    color:rgba(6, 6, 93,0.5);
+   position: relative;
+}
+#error {
+    height: 100vh;
 }
 .headers::before{
     content: '';
@@ -16,6 +20,21 @@
     left: 0;
     top: 0;
 } 
+#error::before ,
+#error::after{
+     height: 100vh;
+}
+#error .light-btn {
+    width: auto;
+     margin: 50px 490px;
+    background-color: white;
+    color: grey;
+    cursor: pointer;
+}
+#error .light-btn:hover{
+    background-color: rgb(3, 3, 77);
+    color: white;
+}
 .headers::after{
         background-color: #fff;
         -webkit-clip-path: polygon(100% 0,0 100%,100% 100%);

@@ -22,6 +22,32 @@
 .social-media ul a{
     color: #eaa451;
     margin-right: 1.5rem;
+    transition: 1s;
+}
+.social-media ul a:nth-child(1):hover,
+.social-media ul a:nth-child(3):hover,
+.social-media ul a:last-child:hover{
+    color: blue;
+    animation: round;
+    animation-duration: 1s;
+}
+.social-media ul a:nth-child(2):hover{
+    color: red;
+    animation: round;
+    animation-duration: 1s;
+}
+.social-media ul a:nth-child(4):hover{
+    color: rgb(244, 73, 55);
+    animation: round;
+    animation-duration: 1s;
+}
+@keyframes round {
+     from {
+        transform: rotate(0deg);
+     }
+     to {
+        transform: rotate(360deg);
+     }
 }
 .footer-menu ul a{
     list-style: none;

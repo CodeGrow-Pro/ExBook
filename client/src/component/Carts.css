@@ -1,0 +1,99 @@
+.product-table {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-size: 22px;
+}
+.tables table{
+     border: 1px solid rgb(199, 196, 196);
+     justify-content: space-around;
+     border-radius: 106px;
+     padding: 10px 20px;
+     border-collapse: collapse;
+}
+.tables table thead {
+    background-color: #eaa451;
+    color: white;
+}
+.tables table thead th{
+    width: 12rem;
+    padding: 20px 20px;
+}
+.table .tbody tr{
+    border: 1px solid rgb(199, 196, 196);
+}
+.table .tbody td {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.table-img{
+    width: 100px;
+    height: 120px;
+   border-radius: 10px;
+   align-items: center;
+   margin-top: 10px;
+}
+.table .table-btn {
+        width: 40px;
+        padding: 10px;
+        margin: 8px;
+}
+.quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.checkout {
+    width: 100%;
+    display: flex;
+    margin-top: 40px;
+    padding: 20px 40px;
+    justify-content: space-between;
+    column-gap:20px;
+    /* align-items: center; */
+}
+.coupon-title{
+    border-left: 5px solid #eaa451;
+    padding: 0px 20px;
+}
+.coupon-input input {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px 15px;
+    border-radius: 20px;
+    border:2px solid #eaa451;
+    font-size: 20px;
+}
+
+.table-2 {
+    width: 100%;
+    margin-top: 30px;
+    text-align: left;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+.table-2 tr{
+    display: flex;
+    justify-content: space-between;
+   border-bottom: 2px solid grey;
+    padding: 20px;
+}
+.table-2 tr:last-child{
+    border-bottom: none;
+}
+.tbody tr:hover  ,
+ .table-2 tr:hover{
+     background-color: whitesmoke;
+     cursor: pointer;
+}
+.checkout-btn {
+    width: 400px;
+    margin-left: 30px;
+}
+.checkout-btn:hover{
+     background-color: rgb(8, 8, 94);
+     color: white
+     ;
+}
