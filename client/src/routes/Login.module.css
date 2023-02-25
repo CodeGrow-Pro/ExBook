@@ -4,13 +4,21 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    color: grey;
+    font-size: large;
+    text-align: justify;
 }
-
+.container a {
+  color: white;
+  text-decoration: none;
+}
 .loginInput{
     height: 12rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 40px 0px;
+    color: #1a0458;
 }
 .loginSubmit{
     height: 2rem;
@@ -69,11 +77,14 @@
     border-radius: 4px;
     width: 20rem;
     max-width: 100%;
+    outline: none;
+    padding: 8px 8px;
   }
   
   .invalid input {
     border: 1px solid #b40e0e;
     background-color: #fddddd;
+    outline: none;
   }
   
   .invalid input:focus {

@@ -14,15 +14,7 @@ import Login from './routes/Login';
 import Errors from './routes/Errors';
 import Regester from './routes/regester';
 
-const loginHandler = async(userData)=>{
-  await fetch('/login', {
-    method: 'POST',
-    body: JSON.stringify({
-      user: userData
-    })
-  });
-  console.log(userData);
-}
+
 
 
 function App() {
@@ -36,7 +28,7 @@ function App() {
           <Route exact path="/Cart" element={<Cart />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/register" element={<Regester />} />
-          <Route exact path="/ui/login" element={<Login onSubmit={loginHandler}/>}/>
+          <Route exact path="/ui/login" element={<Login />}/>
           <Route path='*' element={<Errors />} />
       </Routes>
   );

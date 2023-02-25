@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
+import axios from 'axios'
 import Card from "../component/UI/Card";
 import classes from './Login.module.css'
 import Button from "../component/UI/Button";
@@ -6,30 +7,46 @@ import Navbar from "../component/Navbar";
 import Header from "../component/Header";
 import useInput from "../hooks/use-input";
 import Footer from "../component/Footer";
+import { Link, redirect } from "react-router-dom";
+import {useLocation} from "react-router-dom"
+import Regester from "./regester";
+import User from "./user";
+import { render } from "react-dom";
 
 const Login = (props) => {
-
     const { value: enteredEmail, hasError: emailInputHasError, isValid: emailIsValid, valueHandler: emailChangeHandler, touchHandler: emailTouchHandler, reset: emailReset} = useInput(value => value.trim() !== '');
     const { value: enteredPassword, hasError: passwordInputHasError, isValid: passwordIsValid, valueHandler: passwordChangeHandler, touchHandler: passwordTouchHandler, reset: passwordReset} = useInput(value => value.trim() !== '');
-
     const emailInputClasses = emailInputHasError ? `${classes.control} ${classes.invalid}` : `${classes.control}`;
     const passwordInputClasses = passwordInputHasError ? `${classes.control} ${classes.invalid}` : `${classes.control}`;
     let formIsValid = false;
     if(emailIsValid && passwordIsValid) {
         formIsValid = true;
     }
+    const loginHandler = async(userData)=>{
+       const response = await axios.post('http://localhost:8000/ExBook/api/v1/user/login',userData)
+       .then((res)=>{
+             window.location = '/user'
+       })
+       .catch((err)=>{
+        alert('Something want wrong!')
+       })
+      }
     const confirmHandler = (event) => {
-        // event.preventDefault();
-        console.log("Submit");
+        event.preventDefault();
         if(!formIsValid) {
             return;
         }
-        props.onSubmit({
+        loginHandler({
             email: enteredEmail,
             password: enteredPassword
         })
         emailReset();
         passwordReset();
+    }
+    //page redirect
+    const redirect = (event)=>{
+        event.preventDefault();
+        window.location.href = '/register'
     }
     return (
         <>
@@ -43,24 +60,24 @@ const Login = (props) => {
         </div>
         <div className={classes.container}>
             <Card> 
-                <h2>NEW CUSTOMER</h2>
-                <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+                <h2 className="logo">NEW CUSTOMER</h2>
+                <p id="ptext">By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
                 <br/>
-                <Button >CREATE NEW ACCOUNT</Button>
+                <Button><Link to="/register" component={Regester}>CREATE NEW ACCOUNT</Link></Button>
             </Card>
             <Card> 
-                <h2>LOGIN</h2>
+                <h2 className="logo">LOGIN</h2>
                 <p>If you have an account with us, please log in.</p>
                 <form onSubmit={confirmHandler} className={classes.form}>
                     <div className={classes.loginInput}>
                         <div className={emailInputClasses}>
                             <label htmlFor="email"> Email</label>
-                            <input type='text' id="email" value={enteredEmail} onChange={emailChangeHandler} onBlur={emailTouchHandler}></input>
+                            <input type='text' id="email" value={enteredEmail} onChange={emailChangeHandler} onBlur={emailTouchHandler} placeholder="enter your email"></input>
                             {emailInputHasError && <p className={classes.errorText}>Error</p>}
                         </div>
                         <div className={passwordInputClasses}>
                             <label htmlFor="password"> Password</label>
-                            <input type='text' id="password" value={enteredPassword} onChange={passwordChangeHandler} onBlur={passwordTouchHandler}></input>
+                            <input type='text' id="password" value={enteredPassword} onChange={passwordChangeHandler} onBlur={passwordTouchHandler} placeholder=" * * ** * * * * * * * *"></input>
                             {passwordInputHasError && <p className={classes.errorText}>Error</p>}
                         </div>   
                     </div>

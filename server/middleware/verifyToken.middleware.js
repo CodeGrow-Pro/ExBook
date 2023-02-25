@@ -8,7 +8,7 @@ exports.isAuthorized = (req,res,next)=>{
             message:"Bad Request !  Please pass AccessToken in Header."
         })
      }
-     const  token = header['Authorization'].split(' ')[1];
+     const  token = header['authorization'].split(' ')[1];
      if(!token){
         return res.status(400).send({
             message:"Bad Request !  Token Not Found!"

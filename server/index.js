@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors')
 const routers = require('./routes/apis/index')
 const bodyyParser = require('body-parser');
 const DBConnect = require('./configs/dbConnection');
 const app = express();
+app.use(cors())
 app.use(express.json())
 app.use(bodyyParser.urlencoded({extended:false}))
 app.use('/ExBook',routers);

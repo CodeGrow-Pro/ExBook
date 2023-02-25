@@ -57,3 +57,23 @@ exports.login = async (req,res)=>{
             })
        }
 }
+
+exports.UserFindOne = async (req,res)=>{
+    try {
+         const userData = await User.findOne({_id:req.userId})
+         if(!userData){
+            return res.status(404).send({
+                message:"User does not exists!"
+            })
+         }
+         return res.status(200).send({
+            message:"data fetch successfully",
+            user:userData
+        })
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).send({
+            message:`Something want wrong!`
+        })
+   }
+}
