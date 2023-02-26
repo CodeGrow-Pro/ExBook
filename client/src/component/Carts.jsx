@@ -18,7 +18,6 @@ const Carts = () => {
   }
   const submitHandler = (event)=> {
     event.preventDefault();
-    console.log("Submit");
     let path = '/checkOrder';
     navigate(path);
   }
