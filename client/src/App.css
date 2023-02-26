@@ -3,20 +3,29 @@
   padding: 0;
   box-sizing: border-box;
 }
-.section-p{
+
+body {
+  width: 100%;
+}
+
+.section-p {
   padding: 30px 50px;
 }
+
 .heading-h1 {
   color: rgb(6, 6, 93);
-} 
-::selection{
-  background-color: #eaa451;
- color: white;
 }
-::-webkit-scrollbar{
+
+::selection {
+  background-color: #eaa451;
+  color: white;
+}
+
+::-webkit-scrollbar {
   width: 4px;
   background-color: transparent;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
   background-color: #eaa451;
 }

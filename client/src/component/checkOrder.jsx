@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { razorpayConfig } from "../config/secretKey";
+import PlaceOrder from "./PlaceOrder";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const CheckOrder = (props) => {
     const [successPayment, setSuccessPayment] = useState(false);
@@ -34,9 +38,13 @@ const CheckOrder = (props) => {
                     values,
                 }
             })
-            .then(res => setSuccessPayment(true))
+            .then(res =>{ 
+              setSuccessPayment(true)
+              setFaliurePayment(false)
+            })
             .catch(err => {
               console.log(err);
+              setSuccessPayment(false)
               setFaliurePayment(true);
             })
           },
@@ -71,9 +79,13 @@ const CheckOrder = (props) => {
     
     return(
       <>
-        {(!successPayment) && <button onClick={()=>openPayModal(amount)}>Confirm Address and Amount</button>}
-        {(successPayment) && <p>Success</p>}
-        {(failurePayment) && <p>Try again, someting went wrong !!</p>}
+         <Navbar />
+         <Header heading="Order" />
+        <PlaceOrder payableAmount = {amount} >
+        <button className="normal-btn" onClick={()=>openPayModal(amount)}>{failurePayment ?'Payment Failed! Try again' :'Place Order'}</button>
+        {successPayment  && (window.location = '/Cart')}
+        </PlaceOrder>
+        <Footer />
       </>
     )  
   }

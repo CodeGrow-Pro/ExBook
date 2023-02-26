@@ -83,7 +83,7 @@
     line-height: 1.5rem;
 }
 .normal-btn ,.light-btn {
-    width: 8rem;
+    min-width: 4rem;
     padding: 15px;
     margin-right: 2rem;
     margin-top: 30px;

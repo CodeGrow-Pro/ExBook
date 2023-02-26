@@ -1,11 +1,14 @@
 .card-body{
     margin-top: 100px;
+    justify-content: center;
+    align-items: center;
 }
 .card-body .card{
    border: 1px solid grey;
    padding: 5px;
    border-radius: 10px;
    background-color: whitesmoke;
+   margin-right: 3rem;
 }
 .search {
     display: flex;
