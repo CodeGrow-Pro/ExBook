@@ -1,7 +1,8 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
-const secretKey = require('../configs/secretKey');
+const { secretKey } = require('../configs/secretKey');
+
 exports.Signup = async (req,res)=>{
       const UserData = {
            name:req.body.name,
@@ -29,6 +30,7 @@ exports.Signup = async (req,res)=>{
 
 exports.login = async (req,res)=>{
     const {email,password} = req.body;
+    console.log(req.body);
        try {
             const userRes = await User.findOne({email:email});
             if(!userRes){

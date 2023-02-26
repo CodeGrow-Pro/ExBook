@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import "./Carts.css";
+const axios = require('axios');
+
 const Carts = () => {
   var [quantity,setQuantity] = useState(1)
+  let navigate = useNavigate();
+
   const handleMinus = ()=>{
        if(quantity>0){
         setQuantity(quantity--)
@@ -10,6 +15,12 @@ const Carts = () => {
   }
   const handlePluse = ()=>{
     setQuantity(++quantity)
+  }
+  const submitHandler = (event)=> {
+    event.preventDefault();
+    console.log("Submit");
+    let path = '/checkOrder';
+    navigate(path);
   }
   return (
     <div>
@@ -280,7 +291,7 @@ const Carts = () => {
                     </tr>
                   </tbody>
             </table>
-            <button className="normal-btn checkout-btn">Proceed To Checkout</button>
+            <button className="normal-btn checkout-btn" onClick={submitHandler}>Proceed To Checkout</button>
           </div>
         </div>
       </section>

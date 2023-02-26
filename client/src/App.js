@@ -13,6 +13,7 @@ import Cart from './routes/cart';
 import Login from './routes/Login';
 import Errors from './routes/Errors';
 import Regester from './routes/regester';
+import CheckOrder from './component/checkOrder';
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/user" element={<User />} />
           <Route exact path="/register" element={<Regester />} />
           <Route exact path="/ui/login" element={<Login />}/>
+          <Route exact path='/checkOrder' element={<CheckOrder />} />
           <Route path='*' element={<Errors />} />
       </Routes>
   );

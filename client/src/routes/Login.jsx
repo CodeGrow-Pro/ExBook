@@ -24,7 +24,12 @@ const Login = (props) => {
     }
     const loginHandler = async(userData)=>{
        const response = await axios.post('http://localhost:8000/ExBook/api/v1/user/login',userData)
-       .then((res)=>{
+        // const response = axios({
+        //     method: 'POST',
+        //     url: 'http://localhost:8000/ExBook/api/v1/user/login',
+        //     data: userData
+        // })
+        .then((res)=>{
              window.location = '/user'
        })
        .catch((err)=>{
