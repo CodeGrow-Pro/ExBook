@@ -23,6 +23,22 @@ const UserSchema = new Schema({
         required:true,
         enum:['CUSTOMER','ADMIN','SELLER']
     },
+    languages:{
+        type:String,
+        default:"Hindi"
+    },
+    age:{
+        type:Number,
+    },
+    mobileNo:{
+        type:String
+    },
+    address:{
+        type:String
+    },
+    city:{
+        type:String
+    },
     // exbook:{
     //     type:[mongoose.Schema.Types],
     //     ref:exbooks

@@ -6,6 +6,14 @@ const Product = () => {
   return (
     <div>
         <section className='shop-card section-p'>
+          <div className="search">
+            <div className="search-input">
+              <form>
+                <input type="text" placeholder='Book Search here'/>
+                <button className='light-btn'>Search</button>
+              </form>
+            </div>
+          </div>
           <div className="card-body">
           <BookCart srcImg="https://bookland.dexignzone.com/react/demo/static/media/book1.b9dcc11ed55091e09497.jpg"
                    title="Real Life"

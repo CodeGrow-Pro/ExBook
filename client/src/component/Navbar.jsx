@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { FaBook, FaBookReader, FaLock, FaShoppingBag, FaShoppingCart } from 'react-icons/fa'
+import { FaBook, FaBookReader, FaLock, FaShoppingBag, FaShoppingCart, FaUserCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 const Navbar = () => {
+  const token = localStorage.getItem("token");
   const [navbar,setNavbar] = useState('')
-
  window.addEventListener('scroll',()=>{
     if(window.scrollY>=100){
            setNavbar('navbar-scroll')
@@ -25,7 +25,8 @@ const Navbar = () => {
             <li><Link to='/About-us'>About Us</Link></li>
             <li><Link to='/Contact'>Contact</Link></li>
             <li><Link to='/Cart'><FaShoppingCart></FaShoppingCart></Link></li>
-            <li><Link to='/ui/login'><FaLock></FaLock></Link></li>
+            {!token ?(<li><Link to='/ui/login'><FaLock></FaLock></Link></li>):
+            (<li><Link to='/user'><FaUserCircle></FaUserCircle></Link></li>)}
         </ul> 
        </div>
     </div>

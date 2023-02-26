@@ -79,3 +79,33 @@ exports.UserFindOne = async (req,res)=>{
         })
    }
 }
+
+exports.userUpdate = async (req,res)=>{
+    const body = req.body
+    const reqData = {
+        name:body.name,
+        email:body.email,
+        languages:body.language,
+        age:body.age,
+        mobileNo:body.mobile,
+        address:body.address,
+        city:body.city
+    }
+    try {
+         const updatedUser = await User.findOneAndUpdate({_id:req.userId},reqData)
+         if(!updatedUser){
+            return res.status(400).send({
+                message:"Update failed!",
+            })
+         }
+         return res.status(200).send({
+            message:"User Update successfully",
+            updated_user:updatedUser
+        })
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).send({
+            message:`Something want wrong!`
+        })
+    }
+} 

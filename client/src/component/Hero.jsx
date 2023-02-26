@@ -1,28 +1,27 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Hero.css'
-const Hero = () => {
+const Hero = (props) => {
   return (
     <div>
         <div className='hero section-p'>
             <div className='hero-content'>
-                <p className='latter-space'>Best Management</p>
-                <h1>Think and Grow Rich</h1>
-                <span>Napoleon Hill </span> 
-                <span>Business & Strategy</span>
+                <p className='latter-space'>{props.toptext}</p>
+                <h1>{props.title}</h1>
+                <span>{props.name1}</span> 
+                <span>{props.name2}</span>
                <div className='para'>
                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vero quo dignissimos 
-                    ratione incidunt sequi? Beatae explicabo voluptatibus a
-                    met veniam deserunt aliquid, magni facilis quidem possimus ratione soluta facere culpa.
+                    {props.desc}
                 </p>
                </div>
                <div>
-                    <button className='normal-btn'>Shop</button>
-                    <button className='light-btn'>Contact</button>
+                    <Link to="/Shop"><button className='normal-btn'>Shop</button></Link>
+                    <Link to="/Contact"><button className='light-btn'>Contact</button></Link>
                </div>
             </div>
             <div className='hero-img'>
-                <img src='https://bookland.dexignzone.com/react/demo/static/media/banner-media3.23487455a35fbb0c6504.png'/>
+                <img src={props.imgsrc}/>
             </div>
         </div>
     </div> 

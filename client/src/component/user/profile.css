@@ -98,3 +98,6 @@
 .right input:focus{
     border: 0.5px solid#eaa451;
 }
+.disable:hover{
+    cursor:not-allowed;
+}

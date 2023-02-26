@@ -33,7 +33,7 @@
 .hero-img img{
     height: 85vh;
     animation: topdown;
-    animation-duration: 5s;
+    animation-duration: 2s;
     animation-iteration-count: initial;
 }
 
@@ -60,8 +60,8 @@
     border-radius: 50%;
     z-index: -1;
     animation: move;
-    animation-duration: 5s;
-    transform: 5s;
+    animation-duration: 2s;
+    transform: 2s;
 }
 @keyframes move {
       from{

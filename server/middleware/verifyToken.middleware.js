@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const secretKey = require("../configs/secretKey");
+const {secretKey} = require("../configs/secretKey");
 
 exports.isAuthorized = (req,res,next)=>{
      const header = req.headers
