@@ -49,7 +49,6 @@ const Contact = () => {
   });
   const confirmHandler = (event) => {
     // event.preventDefault();
-    console.log("Submit");
     if(!formIsValid) {
         return;
     }

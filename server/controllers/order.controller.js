@@ -1,11 +1,10 @@
 const Order = require('../models/transaction');
 const Razorpay = require('razorpay');
+const crypto = require('crypto');
 const { razorpayConfig } = require('../configs/secretKey');
 const instance = new Razorpay(razorpayConfig);
 const Transaction = require('../models/transaction');
 exports.create = (req, res)=>{
-    console.log(req.body);
-    console.log("fdsfsaf")
     const options = {
         amount: req.body.amount,
         currency: "INR",

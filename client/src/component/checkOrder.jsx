@@ -3,18 +3,17 @@ import axios from 'axios';
 import { razorpayConfig } from "../config/secretKey";
 
 const CheckOrder = (props) => {
+    const [successPayment, setSuccessPayment] = useState(false);
+    const [failurePayment, setFaliurePayment] = useState(false);
     const [amount, setAmount] = useState(1);
     useEffect(()=> {
-        console.log("runing")
         const script = document.createElement("script");
         script.src = "https://checkout.razorpay.com/v1/checkout.js";
         script.async = true;
         document.body.appendChild(script);
-        console.log(script);
     }, [])
     const openPayModal = (amt) => {
         const amount = amt * 100; //Razorpay consider the amount in paise
-        console.log(razorpayConfig.key_id);
         const options = {
           "key": razorpayConfig.key_id,
           "amount": amount, 
@@ -22,7 +21,6 @@ const CheckOrder = (props) => {
           "description": "",
           'order_id':"",
           "handler": function(response) {
-              console.log(response);
               const values ={
                   razorpay_signature : response.razorpay_signature,
                   razorpay_order_id : response.razorpay_order_id,
@@ -36,9 +34,11 @@ const CheckOrder = (props) => {
                     values,
                 }
             })
-            //   axios.post('http://localhost:8000/ExBook/api/v1/order/payment',values)
-            .then(res=>{alert("Success")})
-            .catch(e=>console.log(e))
+            .then(res => setSuccessPayment(true))
+            .catch(err => {
+              console.log(err);
+              setFaliurePayment(true);
+            })
           },
           "prefill":{
               "name":'Sanjana Kumari',
@@ -49,7 +49,7 @@ const CheckOrder = (props) => {
             "address": "Hello World"
           },
           "theme": {
-            "color": "#528ff0"
+            "color": "#eaa451"
           }
         };
         axios({
@@ -62,18 +62,19 @@ const CheckOrder = (props) => {
         .then(res=>{
             options.order_id = res.data.id;
             options.amount = res.data.amount;
-            console.log(options)
             var rzp1 = new window.Razorpay(options);
             rzp1.open();
         })
         .catch(e=>console.log(e.message))
         
     };
-    return (
-      
-      <button onClick={()=>openPayModal(amount)}>Confirm Address and Amount</button>
-    )
-
-}
-
+    
+    return(
+      <>
+        {(!successPayment) && <button onClick={()=>openPayModal(amount)}>Confirm Address and Amount</button>}
+        {(successPayment) && <p>Success</p>}
+        {(failurePayment) && <p>Try again, someting went wrong !!</p>}
+      </>
+    )  
+  }
 export default CheckOrder;
