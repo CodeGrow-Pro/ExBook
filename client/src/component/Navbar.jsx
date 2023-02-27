@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaBook, FaBookReader, FaLock, FaShoppingBag, FaShoppingCart, FaUserCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import CartContext from '../store/cart-Context'
 import './Navbar.css'
-const Navbar = () => {
+const Navbar = (props) => {
+  const ctx = useContext(CartContext)
   const token = localStorage.getItem("token");
   const [navbar,setNavbar] = useState('')
  window.addEventListener('scroll',()=>{
@@ -24,7 +26,9 @@ const Navbar = () => {
             <li><Link to='/Blog'>Blog</Link></li>
             <li><Link to='/About-us'>About Us</Link></li>
             <li><Link to='/Contact'>Contact</Link></li>
-            <li><Link to='/Cart'><FaShoppingCart></FaShoppingCart></Link></li>
+            <li><Link to='/Cart'><FaShoppingCart></FaShoppingCart></Link>
+            <span className='badge'><p>{ctx.items.length}</p></span>
+            </li>
             {!token ?(<li><Link to='/ui/login'><FaLock></FaLock></Link></li>):
             (<li><Link to='/user'><FaUserCircle></FaUserCircle></Link></li>)}
         </ul> 

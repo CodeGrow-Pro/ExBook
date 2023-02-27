@@ -5,7 +5,7 @@ import CartContext from "../store/cart-Context";
 import CartRow from "./CartRow";
 import "./Carts.css";
 const axios = require("axios");
-const Carts = () => {
+const Carts = (props) => {
   let navigate = useNavigate();
   const ctx = useContext(CartContext);
   const submitHandler = (event) => {

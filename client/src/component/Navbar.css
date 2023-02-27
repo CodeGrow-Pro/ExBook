@@ -66,3 +66,21 @@
     border-radius: 4px;
     background-color:#eaa451 ;
 }
+.badge {
+    position: absolute;
+    display: flex;
+    width: 1.3rem;
+    height: 1.3rem;
+    background-color: #eaa451;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    top: -10px;
+    bottom: 15px;
+    left:12px;
+    border-radius: 50%;
+    border: 0.5px solid #210864;
+}
