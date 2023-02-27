@@ -93,6 +93,7 @@
     border-radius: 8px;
     border: 0.5px solid grey;
     outline: none;
+    color:rgb(10, 10, 121);
 }
 .left input:focus,
 .right input:focus{

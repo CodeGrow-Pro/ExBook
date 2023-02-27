@@ -1,31 +1,37 @@
 .recomend{
     background-color: white;
     margin-bottom: 50px;
+    
 }
 .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     margin-bottom: 60px;
 }
 .title p{
-    width: 50%;
    color: grey;
    font-size: 18px;
    justify-content: center;
-   margin-left: 18rem;
+   padding: 5px 15rem;
    margin-top: 1rem;
-
 }
 .card-body {
-    padding: 0px 80px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     row-gap: 30px;
     flex-wrap: wrap;
     overflow-x: hidden;
 }
 .card {
     text-align: center;
+    cursor: pointer;
+}
+.card:hover{
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.13);
 }
 .card img { 
     border-radius: 10px;

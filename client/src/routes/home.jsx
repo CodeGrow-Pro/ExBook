@@ -5,7 +5,7 @@ import Main from "../component/Main";
 import Navbar from "../component/Navbar";
 import Newsletter from "../component/Newsletter";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div>
       <Navbar />

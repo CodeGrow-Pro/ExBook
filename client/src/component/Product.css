@@ -1,7 +1,7 @@
 .card-body{
     margin-top: 100px;
     justify-content: center;
-    align-items: center;
+    align-items: left;
 }
 .card-body .card{
    border: 1px solid grey;

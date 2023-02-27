@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Carts from '../component/Carts'
 import Footer from '../component/Footer'
 import Header from '../component/Header'
 import Navbar from '../component/Navbar'
-import Newsletter from '../component/Newsletter'
+import Newsletter from '../component/Newsletter';
 const Cart = () => {
   return (
     <div>

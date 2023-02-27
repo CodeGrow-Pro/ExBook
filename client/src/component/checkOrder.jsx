@@ -7,6 +7,16 @@ import Footer from "./Footer";
 import Header from "./Header";
 import CartContext from "../store/cart-Context";
 const CheckOrder = (props) => {
+      //when user not login then redirect  to login page
+      const redirect = (isLogin)=>{
+        if(!isLogin){
+            window.location = '/ui/login'
+        }
+       }
+       if(!localStorage.getItem("token")){
+       window.onload(redirect(localStorage.getItem("token")))
+       }
+       //end
   const ctx = useContext(CartContext)
     const [successPayment, setSuccessPayment] = useState(false);
     const [failurePayment, setFaliurePayment] = useState(false);

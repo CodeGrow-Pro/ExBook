@@ -1,13 +1,29 @@
 import CartContext from "./cart-Context";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
+const getlocalCartItems = ()=>{
+    const localCardItems = JSON.parse(localStorage.getItem("cartItems"));
+    if(localCardItems.length>0){
+        return localCardItems;
+    }else{
+        return []
+    }
+}
+const getLocalCartTotalPrice = ()=>{
+    const totalPrice = localStorage.getItem("cartTotalPrice")
+    if(totalPrice){
+        return  Number(totalPrice);
+    }else{
+        return 0;
+    }
+}
 const defaulCartState = {
-    items: [],
-    totalAmount : 0
+    items: getlocalCartItems(),
+    totalAmount : getLocalCartTotalPrice()
 }
 const cartReducer = (state, action)=> {
     if(action.type === 'ADD') {
-        const updatedAmount = state.totalAmount + action.item.price*1;
+        const updatedAmount = Number(state.totalAmount) + Number(action.item.price);
         const existingCartItemIndex = state.items.findIndex(item => item._id === action.item._id);
         const existingCartItem = state.items[existingCartItemIndex];
         let updatedItems;
@@ -29,7 +45,7 @@ const cartReducer = (state, action)=> {
     if(action.type === 'REMOVE' || action.type=='CLEAR') {
         const existingCartItemIndex = state.items.findIndex(item => item._id === action.id);
         const existingCartItem = state.items[existingCartItemIndex];
-        const updatedAmount = state.totalAmount - existingCartItem.price;
+        const updatedAmount = state.totalAmount - existingCartItem.price*(action.amount || 1);
         let updatedItems;
         if(existingCartItem.amount === 1 || (existingCartItem.amount === action.amount && action.type==='CLEAR')) {
             updatedItems = state.items.filter(item => item !== existingCartItem);
@@ -63,6 +79,12 @@ const CartProvider = props => {
         removeItem: removeItemFromCartHandler,
         clearCart: clearCartHandler
     }
+    
+    useEffect(()=>{
+        localStorage.setItem("cartItems",JSON.stringify(cartState.items))
+        localStorage.setItem("cartTotalPrice",cartState.totalAmount)
+   },[cartState.items,cartState.totalAmount])
+
     return <CartContext.Provider value={cartContext}>
         {props.children}
     </CartContext.Provider>

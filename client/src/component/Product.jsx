@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import BookCart from './BookCart'
-import Main from './Main'
 import axios from 'axios'
 import './Product.css'
 
@@ -37,8 +36,7 @@ const Product = () => {
             {items.map(item => {
                 return (<BookCart 
                     key={item._id}
-                    item={item}
-                    srcImg={item.coverpage} 
+                    Item={item}
                 />)
               })}
           </div>

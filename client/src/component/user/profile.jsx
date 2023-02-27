@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { FaCaretRight, FaCartPlus, FaShoppingBasket, FaShoppingCart, FaUnlock, FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 import './profile.css'
 const Profile = () => {
+    //when user not login then redirect  to login page
    const redirect = (isLogin)=>{
     if(!isLogin){
         window.location = '/ui/login'
@@ -12,6 +13,7 @@ const Profile = () => {
    if(!localStorage.getItem("token")){
    window.onload(redirect(localStorage.getItem("token")))
    }
+   //end
     const token = {
         Authorization:'Bearer '+localStorage.getItem("token")
     }
