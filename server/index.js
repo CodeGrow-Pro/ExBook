@@ -11,7 +11,6 @@ app.use(express.json())
 app.use(bodyyParser.urlencoded({extended:false}))
 
 app.post('/seedDb', async(req, res) => {
-    console.log("dfsa")
     for(let i = 0; i < seedBook.length; i++) {
         const res = await Book.create(seedBook[i]);
         if(!res){

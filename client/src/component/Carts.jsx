@@ -17,6 +17,12 @@ const Carts = () => {
     let path = '/checkOrder';
     navigate(path);
   }
+  const addItem = (item)=>{
+        ctx.addItem(item)
+  }
+  const removeItem =(id)=>{
+          ctx.removeItem(id)
+  }
   return (
     <div>
       <section className="product-table section-p">
@@ -33,9 +39,9 @@ const Carts = () => {
               </tr>
             </thead>
             <tbody className="tbody">
-              {ctx.items.map(item => {
+              {ctx.items.map((item,index) => {
                 return(
-                  <CartRow item={item}/>
+                  <CartRow key={index} onAdd={addItem.bind(null,item)} onRemove = {removeItem.bind(null,item._id)}  item={item} />
                 ) 
               })}
             </tbody>
