@@ -13,12 +13,17 @@ const PlaceOrder = (props) => {
     const [user,setUser] = useState({
         name: "",
        email: "",
-       phone: "",
+       mobileNo: "",
        address:"",
        city:"",
        state:"",
        payableAmount:""
    })
+   const handlechange = (e)=>{
+    e.preventDefault();
+    const {name,value} = e.target
+      setUser({...user,[name]:value})
+   }
     const getUserData = async ()=>{
         axios({
           method:"GET",
@@ -34,6 +39,7 @@ const PlaceOrder = (props) => {
     useEffect(()=>{
      getUserData()
     },[])
+    props.getUser(user)
   return (
     <div>
           <section className='secrtion-p register'>
@@ -41,17 +47,17 @@ const PlaceOrder = (props) => {
                 <h1 className='logo'>BILLING & SHIPPING ADDRESS</h1>
                 <form method="post" onSubmit={handleSubmit}>
                     <label>Name </label>
-                    <input type="text" name="name" placeholder='enter name '  defaultValue={user.name}/>
+                    <input type="text" name="name" onChange={handlechange} placeholder='enter name '  defaultValue={user.name}/>
                     <label>Email </label>
-                    <input type="text"  name="email" placeholder='example@gmail.com' defaultValue={user.email}/>
+                    <input type="text"  name="email" onChange={handlechange} placeholder='example@gmail.com' defaultValue={user.email}/>
                     <label>Phone No </label>
-                    <input type="text" name="phone" placeholder='enter your phone number' defaultValue={user.mobileNo}/>
+                    <input type="text" name="mobileNo" onChange={handlechange} placeholder='enter your phone number' defaultValue={user.mobileNo}/>
                     <label>Address</label>
-                    <input type="text" name="address" placeholder='Type adress here . . .' defaultValue={user.address}/>
+                    <input type="text" name="address" onChange={handlechange} placeholder='Type adress here . . .' defaultValue={user.address}/>
                     <label>City</label>
                     <input type="text" name='city' placeholder='Type city here . . .' defaultValue={user.city}/>
                     <label>State</label>
-                    <input type="text" name='state' placeholder='Type state here . . .' defaultValue={user.state}/>
+                    <input type="text" name='state' onChange={handlechange} placeholder='Type state here . . .' defaultValue={user.state}/>
                     <label>Payable Amount</label>
                     <input type="text" name='amount'  className='disable' disabled defaultValue={props.payableAmount}/>
                     {props.children}

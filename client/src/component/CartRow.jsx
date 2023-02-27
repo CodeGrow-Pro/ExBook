@@ -4,12 +4,6 @@ import CartContext from "../store/cart-Context"
 
 const CartRow = (props) => {
     const ctx = useContext(CartContext);
-    // const handleMinus = ()=>{
-    //     props.onRemove()
-    // }
-    // const handlePluse = ()=>{
-    //   props.onAdd({...props.item})
-    // }
     return(
         <tr>
             <td>
@@ -42,7 +36,7 @@ const CartRow = (props) => {
                 {/* <p>${28*quantity}</p> */}
             </td>
             <td>
-                <button className="light-btn table-btn">
+                <button className="light-btn table-btn" onClick={props.onDelete}>
                 <FaTrash></FaTrash>
                 </button>
             </td>

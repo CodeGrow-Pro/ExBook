@@ -1,27 +1,31 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import { razorpayConfig } from "../config/secretKey";
 import PlaceOrder from "./PlaceOrder";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Header from "./Header";
-
+import CartContext from "../store/cart-Context";
 const CheckOrder = (props) => {
+  const ctx = useContext(CartContext)
     const [successPayment, setSuccessPayment] = useState(false);
     const [failurePayment, setFaliurePayment] = useState(false);
-    const [amount, setAmount] = useState(1);
+    var userData = ""
+    const getUserDetails = (user)=>{
+         userData = user
+    }
     useEffect(()=> {
         const script = document.createElement("script");
         script.src = "https://checkout.razorpay.com/v1/checkout.js";
         script.async = true;
         document.body.appendChild(script);
     }, [])
-    const openPayModal = (amt) => {
+    const openPayModal = (amt,userData) => {
         const amount = amt * 100; //Razorpay consider the amount in paise
         const options = {
           "key": razorpayConfig.key_id,
           "amount": amount, 
-          "name": "",
+          "name": userData.name,
           "description": "",
           'order_id':"",
           "handler": function(response) {
@@ -49,9 +53,9 @@ const CheckOrder = (props) => {
             })
           },
           "prefill":{
-              "name":'Sanjana Kumari',
-              "email":'sanjana@gmail.com',
-              "contact":'1234567890',
+              "name":userData.name,
+              "email":userData.email,
+              "contact":userData.mobileNo,
           },
           "notes": {
             "address": "Hello World"
@@ -76,13 +80,13 @@ const CheckOrder = (props) => {
         .catch(e=>console.log(e.message))
         
     };
-    
+
     return(
       <>
          <Navbar />
          <Header heading="Order" />
-        <PlaceOrder payableAmount = {amount} >
-        <button className="normal-btn" onClick={()=>openPayModal(amount)}>{failurePayment ?'Payment Failed! Try again' :'Place Order'}</button>
+        <PlaceOrder getUser={getUserDetails}  payableAmount = {ctx.totalAmount} >
+        <button className="normal-btn"  onClick={()=>openPayModal(ctx.totalAmount,userData)}>{failurePayment ?'Payment Failed! Try again' :'Place Order'}</button>
         {successPayment  && (window.location = '/Cart')}
         </PlaceOrder>
         <Footer />

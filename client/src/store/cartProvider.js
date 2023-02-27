@@ -7,7 +7,7 @@ const defaulCartState = {
 }
 const cartReducer = (state, action)=> {
     if(action.type === 'ADD') {
-        const updatedAmount = state.totalAmount + action.item.price*action.item.amount;
+        const updatedAmount = state.totalAmount + action.item.price*1;
         const existingCartItemIndex = state.items.findIndex(item => item._id === action.item._id);
         const existingCartItem = state.items[existingCartItemIndex];
         let updatedItems;
@@ -26,12 +26,12 @@ const cartReducer = (state, action)=> {
             totalAmount: updatedAmount
         }
     }
-    if(action.type === 'REMOVE') {
+    if(action.type === 'REMOVE' || action.type=='CLEAR') {
         const existingCartItemIndex = state.items.findIndex(item => item._id === action.id);
         const existingCartItem = state.items[existingCartItemIndex];
         const updatedAmount = state.totalAmount - existingCartItem.price;
         let updatedItems;
-        if(existingCartItem.amount === 1) {
+        if(existingCartItem.amount === 1 || (existingCartItem.amount === action.amount && action.type==='CLEAR')) {
             updatedItems = state.items.filter(item => item !== existingCartItem);
         } else {
             const updatedItem = {...existingCartItem, amount: existingCartItem.amount-1};
@@ -43,9 +43,6 @@ const cartReducer = (state, action)=> {
             totalAmount: updatedAmount
         }
     }
-    if(action.type == 'CLEAR') {
-        return defaulCartState;
-    }
     return defaulCartState;
 }
 const CartProvider = props => {
@@ -56,8 +53,8 @@ const CartProvider = props => {
     const removeItemFromCartHandler = id => {
         dispatchCartAction({type: 'REMOVE', id: id})
     }
-    const clearCartHandler = () => {
-        dispatchCartAction({type: 'CLEAR'});
+    const clearCartHandler = (id,amount) => {
+        dispatchCartAction({type: 'CLEAR',id:id,amount:amount});
     }
     const cartContext = {
         items: cartState.items,
