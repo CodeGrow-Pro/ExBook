@@ -1,4 +1,4 @@
-const userType = require("../constent/constent")
+const userType = require("../constant/constant")
 
 exports.UserBodyDataFilter = (req,res,next) =>{
       const body = req.body

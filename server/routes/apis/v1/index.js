@@ -1,6 +1,7 @@
 const express = require('express');
 const { Signup, login ,UserFindOne, userUpdate} = require('../../../controllers/user.controller');
 const {create, payment} = require('../../../controllers/order.controller');
+const { getBooks } = require('../../../controllers/book.controller');
 const {UserBodyDataFilter,loginBodyDataFilter} = require('../../../middleware/user.middleware');
 const { isAuthorized } = require('../../../middleware/verifyToken.middleware');
 const router = express.Router();
@@ -14,5 +15,8 @@ router.put('/user/update',isAuthorized,userUpdate);
 //---------------------------------------- Payment routes ----------------------------------------------------------
 router.post('/order/create', create);
 router.post('/order/payment', payment);
+
+//---------------------------------------- Book routes -----------------------------------------------------------
+router.get('/book/getBooks', getBooks);
 
 module.exports = router;

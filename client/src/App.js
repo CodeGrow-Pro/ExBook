@@ -14,6 +14,8 @@ import Login from './routes/Login';
 import Errors from './routes/Errors';
 import Regester from './routes/regester';
 import CheckOrder from './component/checkOrder';
+import CartProvider from './store/cartProvider';
+import MyContextOutlet from './component/MyContextOutlet';
 
 
 
@@ -24,13 +26,15 @@ function App() {
           <Route  exact path="/" element={<Home />} />
           <Route exact path="/Blog" element={<Blog />} />
           <Route exact path="/About-us" element={<About />} />
-          <Route exact path="/Shop" element={<Shop />} />
           <Route exact path="/Contact" element={<Contact />} />
-          <Route exact path="/Cart" element={<Cart />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/register" element={<Regester />} />
           <Route exact path="/ui/login" element={<Login />}/>
-          <Route exact path='/checkOrder' element={<CheckOrder />} />
+          <Route element={<MyContextOutlet/>}>
+            <Route exact path='/checkOrder' element={<CheckOrder />} />
+            <Route exact path="/Shop" element={<Shop />} />
+            <Route exact path="/Cart" element={<Cart />} />  
+          </Route>
           <Route path='*' element={<Errors />} />
       </Routes>
   );

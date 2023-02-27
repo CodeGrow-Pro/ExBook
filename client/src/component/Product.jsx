@@ -1,48 +1,46 @@
 import React, { useEffect, useState } from 'react'
 import BookCart from './BookCart'
+import Main from './Main'
+import axios from 'axios'
 import './Product.css'
-import books from '../seeders/books'
+
 const Product = () => {
-  const [book,setBook] = useState([])
-  useEffect(()=>{
-       setBook(books)
-  },[])
-  const handleSearchChange = (e)=>{
-       e.preventDefault()
-       const {name,value} = e.target;
-      
+  const [items, setItem] = useState([])
+  useEffect(()=> {
+    fetchBooks();
+  }, [])
+  const fetchBooks = ()=>{
+    axios({
+      method: 'GET',
+      url: 'http://localhost:8000/ExBook/api/v1/book/getBooks'
+    })    
+    .then(res => {
+      setItem(res.data.allBooks)
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }
+  
   return (
     <div>
         <section className='shop-card section-p'>
           <div className="search">
             <div className="search-input">
               <form>
-                <input type="text" name="search" onChange={handleSearchChange} placeholder='Book Search here'/>
+                <input type="text" name="search" placeholder='Book Search here'/>
                 <button className='light-btn'>Search</button>
               </form>
             </div>
           </div>
           <div className="card-body">
-            {
-              book.map((item)=>{
-                return <BookCart srcImg="https://bookland.dexignzone.com/react/demo/static/media/book1.b9dcc11ed55091e09497.jpg"
-                title={item.title}
-                price="$25.3"/>
-              })
-            }
-          {/* <BookCart srcImg="https://bookland.dexignzone.com/react/demo/static/media/book1.b9dcc11ed55091e09497.jpg"
-                   title="Real Life"
-                   price="$25.3"/>
-                         <BookCart srcImg="https://bookland.dexignzone.com/react/demo/static/media/book1.b9dcc11ed55091e09497.jpg"
-                   title="Real Life"
-                   price="$25.3"/>
-                         <BookCart srcImg="https://bookland.dexignzone.com/react/demo/static/media/book1.b9dcc11ed55091e09497.jpg"
-                   title="Real Life"
-                   price="$25.3"/>
-                         <BookCart srcImg="https://bookland.dexignzone.com/react/demo/static/media/book1.b9dcc11ed55091e09497.jpg"
-                   title="Real Life"
-                   price="$25.3"/> */}
+            {items.map(item => {
+                return (<BookCart 
+                    key={item._id}
+                    item={item}
+                    srcImg={item.coverpage} 
+                />)
+              })}
           </div>
         </section>
     </div>

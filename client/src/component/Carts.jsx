@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import CartContext from "../store/cart-Context";
+import CartRow from "./CartRow";
 import "./Carts.css";
 const axios = require('axios');
 
 const Carts = () => {
-  var [quantity,setQuantity] = useState(1)
   let navigate = useNavigate();
-
-  const handleMinus = ()=>{
-       if(quantity>0){
-        setQuantity(quantity--)
-       }
-  }
-  const handlePluse = ()=>{
-    setQuantity(++quantity)
-  }
+  const ctx = useContext(CartContext);
+  console.log(ctx.items)
+  // var [quantity,setQuantity] = useState(ctx.items)
+  
   const submitHandler = (event)=> {
     event.preventDefault();
     let path = '/checkOrder';
@@ -37,222 +33,11 @@ const Carts = () => {
               </tr>
             </thead>
             <tbody className="tbody">
-              <tr>
-                <td>
-                  <img
-                    className="table-img"
-                    src="https://bookland.dexignzone.com/react/demo/static/media/book3.595225bfbdedd0ea74e3.jpg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <p>Battle Drive</p>
-                </td>
-                <td>
-                  <p>$28</p>
-                </td>
-                <td>
-                  <div className="quantity">
-                    <span>
-                      <button className="light-btn table-btn" onClick={handleMinus}>-</button>
-                    </span>
-                    <span>
-                      <p>{quantity}</p>
-                    </span>
-                    <span>
-                      <button className="light-btn table-btn" onClick={handlePluse}>+</button>
-                    </span>
-                  </div>
-                </td>
-                <td>
-                  <p>${28*quantity}</p>
-                </td>
-                <td>
-                  <button className="light-btn table-btn">
-                    <FaTrash></FaTrash>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    className="table-img"
-                    src="https://bookland.dexignzone.com/react/demo/static/media/book3.595225bfbdedd0ea74e3.jpg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <p>Battle Drive</p>
-                </td>
-                <td>
-                  <p>$28</p>
-                </td>
-                <td>
-                  <div className="quantity">
-                    <span>
-                      <button className="light-btn table-btn" onClick={handleMinus}>-</button>
-                    </span>
-                    <span>
-                      <p>{quantity}</p>
-                    </span>
-                    <span>
-                      <button className="light-btn table-btn" onClick={handlePluse}>+</button>
-                    </span>
-                  </div>
-                </td>
-                <td>
-                  <p>${28*quantity}</p>
-                </td>
-                <td>
-                  <button className="light-btn table-btn">
-                    <FaTrash></FaTrash>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    className="table-img"
-                    src="https://bookland.dexignzone.com/react/demo/static/media/book3.595225bfbdedd0ea74e3.jpg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <p>Battle Drive</p>
-                </td>
-                <td>
-                  <p>$28</p>
-                </td>
-                <td>
-                  <div className="quantity">
-                    <span>
-                      <button className="light-btn table-btn" onClick={handleMinus}>-</button>
-                    </span>
-                    <span>
-                      <p>{quantity}</p>
-                    </span>
-                    <span>
-                      <button className="light-btn table-btn" onClick={handlePluse}>+</button>
-                    </span>
-                  </div>
-                </td>
-                <td>
-                  <p>${28*quantity}</p>
-                </td>
-                <td>
-                  <button className="light-btn table-btn">
-                    <FaTrash></FaTrash>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    className="table-img"
-                    src="https://bookland.dexignzone.com/react/demo/static/media/book3.595225bfbdedd0ea74e3.jpg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <p>Battle Drive</p>
-                </td>
-                <td>
-                  <p>$28</p>
-                </td>
-                <td>
-                  <div className="quantity">
-                    <span>
-                      <button className="light-btn table-btn" onClick={handleMinus}>-</button>
-                    </span>
-                    <span>
-                      <p>{quantity}</p>
-                    </span>
-                    <span>
-                      <button className="light-btn table-btn" onClick={handlePluse}>+</button>
-                    </span>
-                  </div>
-                </td>
-                <td>
-                  <p>${28*quantity}</p>
-                </td>
-                <td>
-                  <button className="light-btn table-btn">
-                    <FaTrash></FaTrash>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    className="table-img"
-                    src="https://bookland.dexignzone.com/react/demo/static/media/book3.595225bfbdedd0ea74e3.jpg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <p>Battle Drive</p>
-                </td>
-                <td>
-                  <p>$28</p>
-                </td>
-                <td>
-                  <div className="quantity">
-                    <span>
-                      <button className="light-btn table-btn" onClick={handleMinus}>-</button>
-                    </span>
-                    <span>
-                      <p>{quantity}</p>
-                    </span>
-                    <span>
-                      <button className="light-btn table-btn" onClick={handlePluse}>+</button>
-                    </span>
-                  </div>
-                </td>
-                <td>
-                  <p>${28*quantity}</p>
-                </td>
-                <td>
-                  <button className="light-btn table-btn">
-                    <FaTrash></FaTrash>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    className="table-img"
-                    src="https://bookland.dexignzone.com/react/demo/static/media/book3.595225bfbdedd0ea74e3.jpg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <p>Battle Drive</p>
-                </td>
-                <td>
-                  <p>$28</p>
-                </td>
-                <td>
-                  <div className="quantity">
-                    <span>
-                      <button className="light-btn table-btn" onClick={handleMinus}>-</button>
-                    </span>
-                    <span>
-                      <p>{quantity}</p>
-                    </span>
-                    <span>
-                      <button className="light-btn table-btn" onClick={handlePluse}>+</button>
-                    </span>
-                  </div>
-                </td>
-                <td>
-                  <p>${28*quantity}</p>
-                </td>
-                <td>
-                  <button className="light-btn table-btn">
-                    <FaTrash></FaTrash>
-                  </button>
-                </td>
-              </tr>
+              {ctx.items.map(item => {
+                return(
+                  <CartRow item={item}/>
+                ) 
+              })}
             </tbody>
           </table>
         </div>
