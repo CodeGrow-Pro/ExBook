@@ -4,9 +4,8 @@ const user = require('./user');
 const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema({
-    books:{
-        type:[mongoose.Schema.Types],
-        ref: 'book',
+    books:{  
+        type:[],
         required:true
     },
     payment_status: {
@@ -14,8 +13,14 @@ const OrderSchema = new Schema({
         enum: ['pending', 'success', 'failure'],
         default: 'pending'
     },
+    transaction_id:{
+        type:String
+    },
+    razorpay_order_id:{
+        type:String
+    },
     user: {
-        type:[mongoose.Schema.Types],
+        type:mongoose.SchemaTypes.String,
         ref: 'user',
         required:true
     },
@@ -36,8 +41,8 @@ const OrderSchema = new Schema({
         type:String,
         default:()=>{
             return Date.now()
-        },
+        }
     }
 });
 
-module.exports = mongoose.model('Order', UserSchema);
+module.exports = mongoose.model('Order', OrderSchema);

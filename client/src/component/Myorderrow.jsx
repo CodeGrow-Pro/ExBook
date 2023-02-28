@@ -1,42 +1,42 @@
 import React from 'react'
 import './Myorderrow.css'
 import './Carts.css'
-const Myorderrow = () => {
+import { FaCheckCircle, FaCross } from 'react-icons/fa'
+const Myorderrow = (props) => {
   return (
         <tr>
             <td>
                 <img
-                className="table-img"
-                src="https://bookland.dexignzone.com/react/demo/static/media/book1.b9dcc11ed55091e09497.jpg"
+                className="table-img round"
+                src={props.item.coverpage}
                 alt="images"
                 />
             </td>
             <td>
-                <p>Real life</p>
+                <p>{props.item.name}</p>
             </td>
             <td>
-                <p>$ {250}</p>
+                <p>$ {props.item.price}</p>
             </td>
             <td>
                 <div className="quantity">
                 <span>
-                    <p>{1}</p>
+                    <p>{props.item.amount}</p>
                 </span>
                 </div>
             </td>
             <td>
-                $250
+                $ {props.item.price * props.item.amount}
             </td>
             <td>
-                Pending
+                {props.status=='success' ? <span className='success'><FaCheckCircle></FaCheckCircle></span>:<span className='failed'>Failed</span>}
             </td>
             <td>
-                <button className="light-btn">
+                <button className="light-btn  mybutton">
                  Cancel
                 </button>
             </td>
         </tr>
-        
   )
 }
 

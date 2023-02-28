@@ -5,7 +5,6 @@ import { FaCartPlus } from 'react-icons/fa'
 import BookCart from './BookCart'
 import axios from 'axios'
 const Main = () => {
-     var count = 1;
      const [items, setItem] = useState([])
      useEffect(()=> {
        fetchBooks();
@@ -16,7 +15,9 @@ const Main = () => {
          url: 'http://localhost:8000/ExBook/api/v1/book/getBooks'
        })    
        .then(res => {
-         setItem(res.data.allBooks)
+          const item = res.data.allBooks;
+          const len = res.data.allBooks.length - 1
+         setItem([item[len],item[len-1],item[len-2],item[len-3]])
        })
        .catch((err) => {
          console.log(err);

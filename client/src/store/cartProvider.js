@@ -3,7 +3,7 @@ import { useEffect, useReducer } from "react";
 
 const getlocalCartItems = ()=>{
     const localCardItems = JSON.parse(localStorage.getItem("cartItems"));
-    if(localCardItems.length>0){
+    if(localCardItems){
         return localCardItems;
     }else{
         return []

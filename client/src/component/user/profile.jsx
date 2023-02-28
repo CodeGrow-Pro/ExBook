@@ -79,7 +79,7 @@ const Profile = () => {
               <div className="sidebar">
                        <ul>
                        <Link to="/user" id='activeblock'><li><span><FaUser></FaUser></span>Profile</li></Link>
-                       <Link to="/Cart"><li><span><FaShoppingCart></FaShoppingCart></span>My Cart</li></Link>
+                       <Link to="/Myorder"><li><span><FaShoppingCart></FaShoppingCart></span>My Cart</li></Link>
                        <Link to="/Shop"><li><span><FaShoppingBasket></FaShoppingBasket></span>Shop</li></Link>
                        <Link to="/" onClick={logout}><li><span><FaUnlock></FaUnlock></span>Logout</li></Link>
                        </ul>

@@ -1,4 +1,26 @@
 .myorder-btn {
     max-width: 100px;
     background-color: #eaa451;
+
+}
+.round {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 3px;
+    border:2px solid #eaa451
+}
+.mybutton{
+    margin: 10px;
+    margin-bottom: 10px;
+}
+.success {
+    margin-right: 2px;
+    color: green;
+    align-items: center;
+}
+.failed{
+    margin-right: 2px;
+    color: red;
+    align-items: center;
 }

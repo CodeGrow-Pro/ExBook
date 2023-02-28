@@ -7,16 +7,20 @@ import Footer from "./Footer";
 import Header from "./Header";
 import CartContext from "../store/cart-Context";
 const CheckOrder = (props) => {
-      //when user not login then redirect  to login page
+  const tokenVal = localStorage.getItem("token")
+  const token = {
+    Authorization:'Bearer '+tokenVal
+}      //when user not login then redirect  to login page
       const redirect = (isLogin)=>{
         if(!isLogin){
             window.location = '/ui/login'
         }
        }
-       if(!localStorage.getItem("token")){
-       window.onload(redirect(localStorage.getItem("token")))
+       if(!tokenVal){
+       window.onload(redirect(tokenVal))
        }
        //end
+       
   const ctx = useContext(CartContext)
     const [successPayment, setSuccessPayment] = useState(false);
     const [failurePayment, setFaliurePayment] = useState(false);
@@ -47,16 +51,32 @@ const CheckOrder = (props) => {
                 }
             axios({
                 method: 'post',
-                url: 'http://localhost:8000/ExBook/api/v1/order/payment',
+                url: 'http://localhost:8000/ExBook/api/v1/transaction/payment',
                 data: {
                     values,
                 }
             })
-            .then(res =>{ 
-              setSuccessPayment(true)
-              setFaliurePayment(false)
-            })
-            .catch(err => {
+            .then((res) =>{ 
+              axios({
+                method: 'post',
+                url: 'http://localhost:8000/ExBook/api/v1/order/create',
+                data:{
+                  payment_details:res.config.data,
+                  items:ctx.items
+                },
+                headers:token
+              }).then((resolve)=>{
+                     console.log(resolve.data)
+                     localStorage.setItem("cartItems",0)
+                     localStorage.setItem("cartTotalPrice",0)
+                    alert("Order Successfully! thanks for Order")
+                    window.location = '/Myorder'
+                }).catch((error)=>{
+                  alert("Something want wrong")
+                })
+                setSuccessPayment(true)
+                setFaliurePayment(false)
+            }).catch(err => {
               console.log(err);
               setSuccessPayment(false)
               setFaliurePayment(true);
@@ -76,7 +96,7 @@ const CheckOrder = (props) => {
         };
         axios({
             method: 'post',
-            url: 'http://localhost:8000/ExBook/api/v1/order/create',
+            url: 'http://localhost:8000/ExBook/api/v1/transaction/create',
             data: {
               amount,
             }
@@ -88,7 +108,6 @@ const CheckOrder = (props) => {
             rzp1.open();
         })
         .catch(e=>console.log(e.message))
-        
     };
 
     return(
@@ -97,7 +116,6 @@ const CheckOrder = (props) => {
          <Header heading="Order" />
         <PlaceOrder getUser={getUserDetails}  payableAmount = {ctx.totalAmount} >
         <button className="normal-btn"  onClick={()=>openPayModal(ctx.totalAmount,userData)}>{failurePayment ?'Payment Failed! Try again' :'Place Order'}</button>
-        {successPayment  && (window.location = '/Cart')}
         </PlaceOrder>
         <Footer />
       </>
