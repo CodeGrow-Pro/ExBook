@@ -31,7 +31,7 @@ const Profile = () => {
     const getUserData = async ()=>{
           axios({
             method:"GET",
-            url:'/ExBook/api/v1/user/find',
+            url:'https://exbookapis.onrender.com/ExBook/api/v1/user/find',
            headers:token
         }).then((res)=>{
             setUser(res.data.user)
@@ -43,7 +43,7 @@ const Profile = () => {
     const updateUser = ()=>{
         axios({
             method:"PUT",
-            url:"/ExBook/api/v1/user/update",
+            url:"https://exbookapis.onrender.com/ExBook/api/v1/user/update",
             data:user,
             headers:token
         }).then((resolve)=>{

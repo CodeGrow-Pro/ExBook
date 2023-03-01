@@ -20,7 +20,7 @@ const MyorderTable = () => {
   const getAllOrder = ()=>{
     axios({
       method:"get",
-      url:"/ExBook/api/v1/order/myorder",
+      url:"https://exbookapis.onrender.com/ExBook/api/v1/order/myorder",
       headers:token
     }).then((response)=>{
       const orders = response.data.Order_Details
