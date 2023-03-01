@@ -39,14 +39,6 @@ const UserSchema = new Schema({
     city:{
         type:String
     },
-    // exbook:{
-    //     type:[mongoose.Schema.Types],
-    //     ref:exbooks
-    // },
-    // shoping:{
-    //     type:[mongoose.Schema.Types],
-    //     ref:shoping
-    // },
     createdAt:{
         type:String,
         default:()=>{

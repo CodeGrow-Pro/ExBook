@@ -81,12 +81,13 @@ exports.UserFindOne = async (req,res)=>{
 
 exports.userUpdate = async (req,res)=>{
     const body = req.body
+    console.log(body)
     const reqData = {
         name:body.name,
         email:body.email,
         languages:body.language,
         age:body.age,
-        mobileNo:body.mobile,
+        mobileNo:body.mobileNo,
         address:body.address,
         city:body.city
     }
@@ -99,7 +100,7 @@ exports.userUpdate = async (req,res)=>{
          }
          return res.status(200).send({
             message:"User Update successfully",
-            updated_user:updatedUser
+            Before_update:updatedUser
         })
     } catch (error) {
         console.log(error.message)
