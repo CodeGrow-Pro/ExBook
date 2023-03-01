@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "client": "cd .. && cd client && npm --openssl-legacy-provider start",
-    "start": "concurrently \"npm run dev\" \"npm run client\"",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
