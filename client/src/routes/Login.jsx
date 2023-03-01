@@ -23,7 +23,7 @@ const Login = (props) => {
         formIsValid = true;
     }
     const loginHandler = async(userData)=>{
-       const response = await axios.post('http://localhost:8000/ExBook/api/v1/user/login',userData)
+       const response = await axios.post('/ExBook/api/v1/user/login',userData)
         .then((res)=>{
             console.log(res.data.accessToken)
             localStorage.setItem("token",res.data.accessToken)
@@ -54,9 +54,6 @@ const Login = (props) => {
         <>
         <Navbar />
         <Header  heading="Login"/>
-        {/* <div className={classes['img-wrap']}>
-            <img className={classes.loginBanner} src="https://cdn.literacytrust.org.uk/media/images/6ef30a3dddeb.2e16d0ba.fill-950x365.jpg"/>
-        </div> */}
         <div className={classes.centreBtn}>
             {/* <Button><a>SHOP </a>  LOGIN </Button> */}
         </div>

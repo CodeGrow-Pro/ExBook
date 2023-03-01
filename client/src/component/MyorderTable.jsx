@@ -20,7 +20,7 @@ const MyorderTable = () => {
   const getAllOrder = ()=>{
     axios({
       method:"get",
-      url:"http://localhost:8000/ExBook/api/v1/order/myorder",
+      url:"/ExBook/api/v1/order/myorder",
       headers:token
     }).then((response)=>{
       const orders = response.data.Order_Details

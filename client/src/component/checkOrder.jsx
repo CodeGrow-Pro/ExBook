@@ -51,7 +51,7 @@ const CheckOrder = (props) => {
                 }
             axios({
                 method: 'post',
-                url: 'http://localhost:8000/ExBook/api/v1/transaction/payment',
+                url: '/ExBook/api/v1/transaction/payment',
                 data: {
                     values,
                 }
@@ -59,7 +59,7 @@ const CheckOrder = (props) => {
             .then((res) =>{ 
               axios({
                 method: 'post',
-                url: 'http://localhost:8000/ExBook/api/v1/order/create',
+                url: '/ExBook/api/v1/order/create',
                 data:{
                   payment_details:res.config.data,
                   items:ctx.items
@@ -96,7 +96,7 @@ const CheckOrder = (props) => {
         };
         axios({
             method: 'post',
-            url: 'http://localhost:8000/ExBook/api/v1/transaction/create',
+            url: '/ExBook/api/v1/transaction/create',
             data: {
               amount,
             }

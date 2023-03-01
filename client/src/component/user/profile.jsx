@@ -27,6 +27,7 @@ const Profile = () => {
         mobileNo:"",
         city:""
     })
+    console.log(user)
     const getUserData = async ()=>{
           axios({
             method:"GET",
@@ -46,6 +47,7 @@ const Profile = () => {
             data:user,
             headers:token
         }).then((resolve)=>{
+            console.log(resolve.data)
             alert("Profile Update successfully")
         }).catch((err)=>{
             alert("Profile update failed! Try Again!")

@@ -27,7 +27,7 @@ const PlaceOrder = (props) => {
     const getUserData = async ()=>{
         axios({
           method:"GET",
-          url:'http://localhost:8000/ExBook/api/v1/user/find',
+          url:'/ExBook/api/v1/user/find',
          headers:token
       }).then((res)=>{
           setUser(res.data.user)

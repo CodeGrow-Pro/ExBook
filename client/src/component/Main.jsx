@@ -12,7 +12,7 @@ const Main = () => {
      const fetchBooks = ()=>{
        axios({
          method: 'GET',
-         url: 'http://localhost:8000/ExBook/api/v1/book/getBooks'
+         url: '/ExBook/api/v1/book/getBooks'
        })    
        .then(res => {
           const item = res.data.allBooks;
