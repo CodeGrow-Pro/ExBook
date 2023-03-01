@@ -33,7 +33,7 @@ const CartRow = (props) => {
                 </div>
             </td>
             <td>
-                {/* <p>${28*quantity}</p> */}
+                <p>${props.item.price*props.item.amount}</p>
             </td>
             <td>
                 <button className="light-btn table-btn" onClick={props.onDelete}>

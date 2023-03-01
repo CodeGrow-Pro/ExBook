@@ -30,7 +30,7 @@ const Profile = () => {
     const getUserData = async ()=>{
           axios({
             method:"GET",
-            url:'http://localhost:8000/ExBook/api/v1/user/find',
+            url:'/ExBook/api/v1/user/find',
            headers:token
         }).then((res)=>{
             setUser(res.data.user)
@@ -42,7 +42,7 @@ const Profile = () => {
     const updateUser = ()=>{
         axios({
             method:"PUT",
-            url:"http://localhost:8000/ExBook/api/v1/user/update",
+            url:"/ExBook/api/v1/user/update",
             data:user,
             headers:token
         }).then((resolve)=>{
