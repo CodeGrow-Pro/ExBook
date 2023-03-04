@@ -13,7 +13,7 @@ const CheckOrder = (props) => {
 }      //when user not login then redirect  to login page
       const redirect = (isLogin)=>{
         if(!isLogin){
-            window.location = '/ui/login'
+            window.location.href = '/#/ui/login'
         }
        }
        if(!tokenVal){
