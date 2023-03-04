@@ -120,3 +120,11 @@
     background-color: rgb(6, 6, 93);
     color: white;
 }
+@media screen and (max-width:768px) {
+    .some-deatils {
+        flex-direction: column;
+    }
+    .news-subscribe {
+        min-height: 15rem;
+    }
+}

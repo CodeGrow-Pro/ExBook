@@ -70,7 +70,7 @@ const CheckOrder = (props) => {
                      localStorage.setItem("cartItems",0)
                      localStorage.setItem("cartTotalPrice",0)
                     alert("Order Successfully! thanks for Order")
-                    window.location = '/Myorder'
+                    window.location.href = '/#/Myorder'
                 }).catch((error)=>{
                   alert("Something want wrong")
                 })

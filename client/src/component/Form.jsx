@@ -21,7 +21,7 @@ const Form = () => {
     setUser('')
     e.preventDefault()
         const response = await axios.post('https://exbookapis.onrender.com/ExBook/api/v1/user/signup',user).then((res)=>{
-            window.location.href = '/ui/login'
+            window.location.href = '/#/ui/login'
         }).catch((err)=>{
             console.log(err)
             alert('something want wrong! Please try after some time.')

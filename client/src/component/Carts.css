@@ -35,8 +35,9 @@
    align-items: center;
    margin-top: 10px;
 }
-.table .table-btn {
-        width: 40px;
+
+.table-btn {
+        min-width: 4rem;
         padding: 10px;
         margin: 8px;
 }
@@ -97,6 +98,5 @@
 }
 .checkout-btn:hover{
      background-color: rgb(8, 8, 94);
-     color: white
-     ;
+     color: white;
 }

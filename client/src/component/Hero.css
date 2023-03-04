@@ -1,7 +1,7 @@
 
 .hero {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: space-between;
     align-items: center;
     background-color: whitesmoke;
@@ -31,7 +31,8 @@
     letter-spacing: 1.5rem;
 }
 .hero-img img{
-    height: 85vh;
+    width: auto;
+    max-height: 85vh;
     animation: topdown;
     animation-duration: 2s;
     animation-iteration-count: initial;
@@ -52,8 +53,8 @@
 .hero-img::after {
     content: '';
     background-color: #eaa451;
-    width: 500px;
-    height: 500px;
+   width: 30rem;
+   height: 30rem;
     position: absolute;
     right: 0px;
     top: -10px;
@@ -83,7 +84,7 @@
     line-height: 1.5rem;
 }
 .normal-btn ,.light-btn {
-    min-width: 4rem;
+    min-width: 8rem;
     padding: 15px;
     margin-right: 2rem;
     margin-top: 30px;
@@ -111,3 +112,10 @@
     border: 2px solid #eaa451;
 }
   
+@media screen and (max-width:768px) {
+    .hero {
+       flex-direction: column-reverse;
+       justify-content: center;
+       padding: 20px;
+    }
+}

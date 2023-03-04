@@ -80,3 +80,13 @@
     color: rgb(6, 6, 93);    
 }
 
+@media screen and (max-width:768px) {
+    .footer {
+        padding: 100px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .contact {
+        margin-top: 50px;
+    }
+}
