@@ -27,7 +27,7 @@ const Login = (props) => {
         .then((res)=>{
             console.log(res.data.accessToken)
             localStorage.setItem("token",res.data.accessToken)
-             window.location = '/user'
+             window.history.back()
        })
        .catch((err)=>{
         alert('Something went wrong! Try again!')

@@ -7,7 +7,7 @@ const Profile = () => {
     //when user not login then redirect  to login page
    const redirect = (isLogin)=>{
     if(!isLogin){
-        window.location = '/ui/login'
+        window.location.assign('/ui/login')
     }
    }
    if(!localStorage.getItem("token")){
