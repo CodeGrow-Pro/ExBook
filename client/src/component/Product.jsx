@@ -26,10 +26,10 @@ const Product = () => {
         <section className='shop-card section-p'>
           <div className="search">
             <div className="search-input">
-              <form>
+              {/* <form>
                 <input type="text" name="search" placeholder='Book Search here'/>
                 <button className='light-btn'>Search</button>
-              </form>
+              </form> */}
             </div>
           </div>
           <div className="card-body">
