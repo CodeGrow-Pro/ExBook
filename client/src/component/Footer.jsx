@@ -37,9 +37,9 @@ const Footer = () => {
                       <h1 className='logo'>Get in Touch With Us</h1>
                       <ul>
                          <li><FaMapMarked></FaMapMarked>
-                         <span>832 Thompson Drive, San Fransisco CA 94107,US</span></li>
-                         <li><FaPhone></FaPhone><span>+123 345123 556</span></li>
-                         <li><FaMailBulk></FaMailBulk><span>support@bookland.id</span></li>
+                         <span>Delhi Road Mohkampur , Meerut (U.P)</span></li>
+                         <li><FaPhone></FaPhone><span>+91 7618560025 , +91 7900439354</span></li>
+                         <li><FaMailBulk></FaMailBulk><span>Vk4993102@gmail.com</span></li>
                       </ul> 
            </div>
         </div>
