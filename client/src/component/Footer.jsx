@@ -9,7 +9,7 @@ const Footer = () => {
            <div>
                  <h1 className='logo'>Ex<span>Book</span></h1>
                  <div className='footer-content'>
-                    <p>Bookland is a Book Store </p>
+                    <p>ExBook is a Book Store </p>
                         <p><strong>Ecommerce Website</strong> Template by </p>
                         <p>DexignZone lorem ipsum dolor sit</p>
                  </div>
