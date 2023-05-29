@@ -29,12 +29,7 @@ const Main = () => {
         <div className="title heading-h1">
           <h1>Recomended For You</h1>
           <p>
-            Welcome to ExBook, your one-stop destination for all your book
-            needs. Explore our vast collection of books, spanning various genres
-            and authors. Immerse yourself in captivating blog posts, insightful
-            reviews, and engaging author interviews. Join our passionate
-            community of book enthusiasts and embark on a literary journey like
-            no other.
+          Discover personalized recommendations just for you, based on your reading preferences and past purchases. Uncover hidden literary gems that are tailored to your unique tastes and interests.
           </p>
         </div>
         <div className="slider">
