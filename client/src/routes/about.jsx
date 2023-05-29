@@ -13,7 +13,7 @@ const About = () => {
       <Hero
         imgsrc="https://bookland.dexignzone.com/react/demo/static/media/banner-media2.2097107a6e8c5f803b5b.png"
         title="ExBook Is Best Choice For Learners"
-        desc="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration which don’t look even slightly believable. It Is A Long Established Fact That A Reader Will Be Distracted"
+        desc="At ExBook, we are dedicated to bringing the joy of reading to book lovers around the world. Our mission is to provide a seamless and immersive online platform for book enthusiasts to explore, discover, and connect. With a team of passionate readers and technology enthusiasts, we strive to curate a diverse collection of books and create a welcoming community for literary discussions. Join us on this literary adventure as we celebrate the magic of books together."
       />
       <Newsletter />
       <Footer />

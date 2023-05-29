@@ -9,7 +9,7 @@ const Shop = () => {
   return (
     <div>
         <Navbar />
-        <Header heading="#Shop"/>
+        <Header heading="Shop"/>
         <Product />
         <Newsletter />
         <Footer />
