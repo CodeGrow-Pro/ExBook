@@ -4,6 +4,7 @@ import Hero from "../component/Hero";
 import Main from "../component/Main";
 import Navbar from "../component/Navbar";
 import Newsletter from "../component/Newsletter";
+import AdBanner from "../component/AdBanner";
 
 const Home = (props) => {
   return (
@@ -19,6 +20,7 @@ const Home = (props) => {
       />
       <Main />
       <Newsletter />
+      <AdBanner />
       <Footer />
     </div>
   );

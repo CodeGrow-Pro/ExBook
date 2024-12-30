@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../component/Header";
+import AdBanner from "../component/AdBanner";
 
 const Errors = () => {
   return (
@@ -11,6 +12,7 @@ const Errors = () => {
         error="error"
         text="We are sorry. But the page you are looking for cannot be found."
       />
+      <AdBanner />
     </div>
   );
 };

@@ -2,48 +2,49 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Myorderrow from './Myorderrow'
 import './MyorderTable.css'
+import AdBanner from './AdBanner'
 const MyorderTable = () => {
   const tokenVal = localStorage.getItem("token")
   const token = {
-    Authorization:'Bearer '+tokenVal
-}      //when user not login then redirect  to login page
-      const redirect = (isLogin)=>{
-        if(!isLogin){
-            window.location = '/ui/login'
-        }
-       }
-       if(!tokenVal){
-       window.onload(redirect(tokenVal))
-       }
-       //end
-  const [order,setOrder] = useState([]);
-  const getAllOrder = ()=>{
+    Authorization: 'Bearer ' + tokenVal
+  }      //when user not login then redirect  to login page
+  const redirect = (isLogin) => {
+    if (!isLogin) {
+      window.location = '/ui/login'
+    }
+  }
+  if (!tokenVal) {
+    window.onload(redirect(tokenVal))
+  }
+  //end
+  const [order, setOrder] = useState([]);
+  const getAllOrder = () => {
     axios({
-      method:"get",
-      url:"https://exbookapis.onrender.com/ExBook/api/v1/order/myorder",
-      headers:token
-    }).then((response)=>{
+      method: "get",
+      url: "https://exbookapis.onrender.com/ExBook/api/v1/order/myorder",
+      headers: token
+    }).then((response) => {
       const orders = response.data.Order_Details
       const arr = []
-        for(let i=0;i<orders.length;i++){
-          const books = orders[i].books
-          const status = orders[i].payment_status
-          for(let j=0;j<books.length;j++){
-            arr.push({book:books[j],status:status})
-          }
+      for (let i = 0; i < orders.length; i++) {
+        const books = orders[i].books
+        const status = orders[i].payment_status
+        for (let j = 0; j < books.length; j++) {
+          arr.push({ book: books[j], status: status })
         }
-         setOrder(arr)
-    }).catch((error)=>{
+      }
+      setOrder(arr)
+    }).catch((error) => {
       console.log(error.message)
       alert("Something went Wrong ! try after some time.")
     })
   }
-  useEffect(()=>{
-        getAllOrder()
-  },[])
+  useEffect(() => {
+    getAllOrder()
+  }, [])
   return (
     <div>
-         <section className="myorder-table product-table section-p">
+      <section className="myorder-table product-table section-p">
         <div className="tables">
           <table className="table">
             <thead >
@@ -58,16 +59,16 @@ const MyorderTable = () => {
               </tr>
             </thead>
             <tbody className="tbody">
-                  {
-                    order.map((item,index)=>{
-                      return (
-                      <Myorderrow 
-                       key={index}
-                        item={item.book}
-                        status={item.status}
+              {
+                order.map((item, index) => {
+                  return (
+                    <Myorderrow
+                      key={index}
+                      item={item.book}
+                      status={item.status}
                     />)
-                    })
-                  }
+                })
+              }
             </tbody>
           </table>
         </div>
@@ -137,6 +138,7 @@ const MyorderTable = () => {
           </div>
         </div> */}
       </section>
+      <AdBanner />
     </div>
   )
 }
