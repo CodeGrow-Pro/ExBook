@@ -10,8 +10,8 @@ const Footer = () => {
                  <h1 className='logo'>Ex<span>Book</span></h1>
                  <div className='footer-content'>
                     <p>ExBook is a Book Store </p>
-                        <p><strong>Ecommerce Website</strong> Template by </p>
-                        <p>DexignZone lorem ipsum dolor sit</p>
+                        {/* <p><strong>Ecommerce Website</strong> Template by </p>
+                        <p>DexignZone lorem ipsum dolor sit</p> */}
                  </div>
                  <div className="social-media">
                       <ul>
