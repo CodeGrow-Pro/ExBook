@@ -29,7 +29,7 @@ const Main = () => {
         <div className="title heading-h1">
           <h1>Recomended For You</h1>
           <p>
-          Discover personalized recommendations just for you, based on your reading preferences and past purchases. Uncover hidden literary gems that are tailored to your unique tastes and interests.
+            Explore a curated selection of books tailored to your unique reading preferences and past purchases. Discover hidden literary treasures and handpicked recommendations that align with your interests, offering you a personalized and engaging reading experience.
           </p>
         </div>
         <div className="slider">
